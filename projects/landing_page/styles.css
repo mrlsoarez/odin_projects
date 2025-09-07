@@ -2,3 +2,153 @@
     padding: 0;
     margin: 0;
 }
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.header { 
+    background: #1f2937;
+}
+
+.header.one {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    color: white;
+    
+}
+
+.header.one > ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.header.two {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20x;
+    height: 350px;
+    color: white;
+}
+
+.header.two .left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 120px;
+    width: 400px;
+    gap: 12px;
+}
+
+.header.two .left button {
+    width: 100px;
+    height: 30px;
+    font-weight: bolder;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #3882f6;
+    color: white;
+}
+
+.header.two .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 200px;
+    margin-right: 120px;
+    background: grey;
+}
+
+.content.one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 30px;
+}
+
+.content.one .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+}
+
+.content.one .container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+}
+
+.content.one .container div p {
+   text-align: center;
+}
+
+.content.one .container .square {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #3882f6;
+    border-radius: 10px;
+}
+
+.content.two {
+    padding: 150px;
+    background: rgb(212, 212, 212);
+}
+
+.content.two p {
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.content.two  p:nth-child(2) {
+    text-align: right;
+    font-weight: bolder;
+}
+
+.content.three {
+    padding: 80px;
+}
+
+.content.three .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 130px;
+    background: #3882f6;
+    border-radius: 10px;
+    color: white;
+}
+
+.content.three .container p:nth-child(1) {
+    font-weight: bolder;
+    font-size: 19px;
+}
+
+.content.three .container button {
+    padding: 10px;
+    width: 120px;
+    border-radius: 5px;
+    font-weight: bolder;
+    color: white;
+    border: 2px solid white;
+    background: none;
+}
+
+.footer {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
