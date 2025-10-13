@@ -1,16 +1,13 @@
 let humanScore = 0
 let computerScore = 0
-
+/*
 function getComputerChoice() {
     let array = ["ROCK", "PAPER", "SCISSORS"]
     return array[Math.floor(Math.random() * 3)]
 }
 
 function getHumanChoice(choice) {
-    while (choice != "ROCK" && choice != "PAPER" && choice != "SCISSORS") {
-        choice = prompt("Try again! Choose one of the options.: ROCK, PAPER or SCISSORS").toUpperCase()
-    }
-    return choice.toUpperCase()
+    console.log(choice)
 }
 
 
@@ -43,18 +40,25 @@ function playRound(human, computer, round) {
     }
 
 }
+*/
+function getDOMInteractions() {
 
+    function displayPlayerChoice(player_choice) {
+        let display = document.querySelector(".Display");
+        display.innerHTML = "";
+        let p = document.createElement("p");
+        p.textContent = player_choice;
+        display.append(p);
+    }
 
-for (let i = 0; i < 5; i ++) {
-
-    let human_choice = getHumanChoice(prompt("What is your choice? Rock, Paper or Scissors?").toUpperCase())
-    let computer_choice = getComputerChoice()
-
-    playRound(human_choice, computer_choice, i + 1)
+    buttons = document.querySelectorAll(".Button")
+   
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            displayPlayerChoice(btn.id)
+        })
+    })
 
 }
 
-console.log("=====================RESULT==================")
-if (computerScore > humanScore) { console.log (`Computer won with ${computerScore} points!`)}
-else if (humanScore > computerScore) { console.log(`Human won with ${humanScore} points!`)}
-else { console.log("It's a tie!") }
+getDOMInteractions()
