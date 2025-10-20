@@ -55,6 +55,31 @@ function getDOMInteractions() {
 
     }
 
+    function renderPlay(query, id) {
+
+        let images = document.querySelectorAll(query); 
+        let array = Array.from(images);
+        array.forEach((element) => {
+            element.className = makeitDisappear(element);
+            if (element.id == id) {
+                element.className = makeItAppear(element);
+            }
+        })
+
+    }
+
+    function makeitDisappear(element) {
+        new_class = element.className.replace("Active", "Inactive");
+        return new_class;
+    }
+
+    function makeItAppear(element) {
+        new_class = element.className.replace("Inactive", "Active");
+        return new_class;
+    }
+
+
+
     function displayMessage(class_name, message) {
         let display = document.querySelector(class_name)
         display.innerHTML = "";
@@ -72,27 +97,27 @@ function getDOMInteractions() {
 
     buttons_html = document.querySelectorAll(".Button");
     buttons = Array.from(buttons_html);
+    let loading = document.querySelector(".Loading");
     renderScore(); 
 
     buttons_html.forEach((btn) => {
 
         btn.addEventListener("click", (e) => {
-
-            let player_choice = btn.id;
-            displayMessage(".Player", `Player.: ${player_choice}`);
-              
-            let computer_choice = getComputerChoice();
-            displayMessage(".Computer", `Computer.: ${computer_choice}`);
-
+            renderPlay(".Play.Player", btn.id);
+            const time_out = setTimeout(() => {loading.className = makeItAppear(loading)} , 2000);
+            const time_out_2 = setTimeout(() => {loading.className = makeitDisappear(loading)} , 3000);
+            renderPlay(".Play.Computer", btn.id);
+            /*
             let message = playRound(player_choice, computer_choice);
             displayMessage(".Message", message); 
-
+            
             renderScore();
             
             if (computerScore == 5 || humanScore == 5) {
                buttons.map((b) => { b.disabled = true; })
                finishGame(); 
             }
+               */
         })
 
 
