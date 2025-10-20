@@ -104,9 +104,9 @@ function getDOMInteractions() {
 
         btn.addEventListener("click", (e) => {
             renderPlay(".Play.Player", btn.id);
-            const time_out = setTimeout(() => {loading.className = makeItAppear(loading)} , 2000);
+            const time_out = setTimeout(() => {loading.className = makeItAppear(loading)} , 1000);
             const time_out_2 = setTimeout(() => {loading.className = makeitDisappear(loading)} , 3000);
-            renderPlay(".Play.Computer", btn.id);
+            const time_out_3 = setTimeout(() => { renderPlay(".Play.Computer", getComputerChoice())}, 3000);
             /*
             let message = playRound(player_choice, computer_choice);
             displayMessage(".Message", message); 

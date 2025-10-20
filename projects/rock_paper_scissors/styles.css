@@ -67,21 +67,29 @@
     height: 70%;
 }
 
-.Container .Game .Player-Games {
+.Container .Game .Player-Games,
+.Container .Game .Computer-Games {
     display: flex;
     position: relative;
     width: 100%;
     height: 50%;
 }
 
-.Container .Game .Player-Games .Play.Inactive {
+.Container .Game .Player-Games .Play.Inactive,
+.Container .Game .Computer-Games .Computer.Inactive {
     opacity: 0;
 }
 
 .Container .Game .Player-Games .Play.Active {
-    animation: appear 2s forwards;
+    animation: appear_left 2s forwards;
     rotate: calc(90deg);
-    position: absolute 
+    position: absolute;
+}
+
+.Container .Game .Computer-Games .Computer.Active {
+    animation: appear_right 2s forwards;  
+    position: absolute;
+    rotate: calc(270deg);
 }
 
 .Container .Computer {
@@ -92,7 +100,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1;
+    opacity: 0.5;
     background: white;
     position: absolute;
     width: 100%;
@@ -135,7 +143,7 @@
     }
 }
 
-@keyframes appear {
+@keyframes appear_left {
     0% {
         opacity: 0;
         left: 0px;
@@ -147,5 +155,20 @@
     100% {
         opacity: 1;
         left: 5%;
+    }
+}
+
+@keyframes appear_right {
+    0% {
+        opacity: 0;
+        right: 0px;
+    }
+    50% {
+        opacity: 0.5;
+        right: 2.5%;
+    }
+    100% {
+        opacity: 1;
+        right: 5%;
     }
 }
