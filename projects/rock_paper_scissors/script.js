@@ -44,14 +44,14 @@ function playRound(human, computer) {
 function getDOMInteractions() {
 
     function renderScore()  {
-        let player_score = document.querySelector(".Player-Score");
-        let computer_score = document.querySelector(".Computer-Score"); 
+        let player_score = document.querySelector(".Player.Score");
+        let computer_score = document.querySelector(".Computer.Score"); 
 
         player_score.innerHTML = "";
         computer_score.innerHTML = "";
 
-        computer_score.innerHTML = `Computer.: ${parseInt(computerScore)}`;
-        player_score.innerHTML = `Player.: ${parseInt(humanScore)}`;
+        computer_score.innerHTML = `Computer Points.: ${parseInt(computerScore)}`;
+        player_score.innerHTML = `Player Points.: ${parseInt(humanScore)}`;
 
     }
 
@@ -103,15 +103,23 @@ function getDOMInteractions() {
     buttons_html.forEach((btn) => {
 
         btn.addEventListener("click", (e) => {
-            renderPlay(".Play.Player", btn.id);
-            const time_out = setTimeout(() => {loading.className = makeItAppear(loading)} , 1000);
-            const time_out_2 = setTimeout(() => {loading.className = makeitDisappear(loading)} , 3000);
-            const time_out_3 = setTimeout(() => { renderPlay(".Play.Computer", getComputerChoice())}, 3000);
+
+            let player_choice = btn.id;
+            let computer_choice = getComputerChoice();
+
+            playRound(player_choice, computer_choice);
+
+            renderPlay(".Play.Player", player_choice);
+
+            setTimeout(() => {loading.className = makeItAppear(loading)} , 1000);
+            setTimeout(() => {loading.className = makeitDisappear(loading)} , 3000);
+            setTimeout(() => { renderPlay(".Play.Computer", computer_choice)}, 3000);
+            setTimeout(() => { renderScore()}, 3000);
+           
             /*
             let message = playRound(player_choice, computer_choice);
             displayMessage(".Message", message); 
             
-            renderScore();
             
             if (computerScore == 5 || humanScore == 5) {
                buttons.map((b) => { b.disabled = true; })

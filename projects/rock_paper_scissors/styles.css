@@ -67,12 +67,22 @@
     height: 70%;
 }
 
-.Container .Game .Player-Games,
-.Container .Game .Computer-Games {
+.Container .Game > div {
+    border: 5px solid black;
+}
+
+.Container .Game  {
+    display: grid;
+}
+
+.Container .Game .Score {
     display: flex;
+    align-items: center;
+}
+
+.Container .Game .Computer-Games, 
+.Container .Game .Player-Games {
     position: relative;
-    width: 100%;
-    height: 50%;
 }
 
 .Container .Game .Player-Games .Play.Inactive,
@@ -119,6 +129,13 @@
 .Container .Computer .Loading.Inactive img { 
     opacity: 0;
     display: none;
+}
+
+.Container .Game .Score {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    background: red;
 }
 
 /*  animation */
