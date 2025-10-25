@@ -5,15 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper and Scissors</title>
     <script defer src = "script.js"></script>
+    <link rel = "stylesheet" href = "styles.css">
 </head>
 <body>
-    <button class = "Button" id = "ROCK">Rock</button>
-    <button class = "Button" id = "PAPER">Paper</button>
-    <button class = "Button" id = "SCISSORS">Scissors</button>
-    <div class = "Player-Score"></div>
-    <div class = "Computer-Score"></div>
-    <div class = "Player"></div>
-    <div class = "Computer"></div>
-    <div class = "Message"></div>
+    <h1>Rock, Paper, Scissors </h1>
+    <div class = "Container">      
+        <div class = "Player Side">
+            <div class = "Participant-Image"> <img src = "images/user.png"></div>
+                <button class = "Button" id = "ROCK"><img src = "images/rock.png"></button>
+                <button class = "Button" id = "PAPER"><img src = "images/hand.png"></button>
+                <button class = "Button" id = "SCISSORS"><img src = "images/scissor.png"></button>
+        </div>
+        <div class = "Game">
+            <div class = "Player Score">Player Points.: 0</div>
+            <div class = "Player-Games">
+                <img class = "Play Inactive Player" id = "ROCK" src = "images/rock.png">
+                <img class = "Play Inactive Player" id = "PAPER" src = "images/hand.png">
+                <img class = "Play Inactive Player" id = "SCISSORS" src = "images/scissor.png">
+            </div>
+            <div class = "Computer-Games">
+                <img class = "Play Inactive Computer" id = "ROCK" src = "images/rock.png">
+                <img class = "Play Inactive Computer" id = "PAPER" src = "images/hand.png">
+                <img class = "Play Inactive Computer" id = "SCISSORS" src = "images/scissor.png">
+            </div>
+            <div class = "Computer Score">Computer Score.: 0</div>
+        </div>
+        <div class = "Computer Side">
+            <div class = "Loading Inactive"><img src = "images/loading.gif"></div>
+            <div class = "Participant-Image"> <img src = "images/computer.png"> </div>
+        </div>
+    </div>
+
+    
 </body>
 </html>

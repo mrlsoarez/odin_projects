@@ -1,0 +1,200 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --player-color: rgb(180, 255, 180);
+    --player-color-darker: rgb(161, 231, 211);
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.Container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    border: 5px solid var(--player-color);
+    width: 70%;
+    height: 90vh;
+    margin: 0 auto;
+    border-radius: 25px;
+    position: relative;
+}
+
+
+.Container .Side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Container .Side .Participant-Image {
+    width: 150px;
+    height: 150px;
+    background: var(--player-color);
+    border-radius: 25px;
+}
+
+.Container .Side .Participant-Image img {
+    width: 100%;
+    height: 100%;
+}
+
+.Container .Side button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    width: 80px;
+    height: 80px;
+}
+
+.Container .Player.Side button {
+    background: var(--player-color);
+}
+
+.Container .Side button:hover {
+    cursor: pointer;
+    animation: scaleIn 2s forwards;
+}
+
+.Container .Side button img {
+    display: flex;
+    align-self: center;
+    width: 70%;
+    height: 70%;
+}
+
+.Container .Game > div {
+    border: 5px solid rgb(51, 51, 51);
+    position: relative;
+}
+
+.Container .Game  {
+    display: grid;
+    position: relative;
+}
+
+.Container .Game .Score {
+    display: flex;
+    align-items: center;
+}
+
+.Container .Game .Computer-Games, 
+.Container .Game .Player-Games {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.Container .Game .Player-Games .Play.Inactive,
+.Container .Game .Computer-Games .Computer.Inactive {
+    opacity: 0;
+}
+
+.Container .Game .Player-Games .Play.Active {
+    animation: appear_left 2s forwards;
+    rotate: calc(90deg);
+    position: absolute;
+}
+
+.Container .Game .Computer-Games .Computer.Active {
+    animation: appear_right 2s forwards;  
+    position: absolute;
+    rotate: calc(270deg);
+}
+
+.Container .Computer {
+    position: relative;
+}
+
+.Container .Computer .Loading.Active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    background: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.Container .Computer .Loading.Active img {
+    width: 50px;
+    height: 50px;
+}
+
+.Container .Computer .Loading.Inactive { 
+    opacity: 0;
+}
+
+.Container .Computer .Loading.Inactive img { 
+    opacity: 0;
+    display: none;
+}
+
+.Container .Game .Score {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    background: var(--player-color-darker);
+}
+
+/*  animation */
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(1);
+        background-color: var(--player-color);
+    }
+    100% {
+        transform: scale(1.15);
+        background: linear-gradient(var(--player-color), var(--player-color-darker));
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes appear_left {
+    0% {
+        opacity: 0;
+        left: 0px;
+    }
+    50% {
+        opacity: 0.5;
+        left: 2.5%;
+    }
+    100% {
+        opacity: 1;
+        left: 5%;
+    }
+}
+
+@keyframes appear_right {
+    0% {
+        opacity: 0;
+        right: 0px;
+    }
+    50% {
+        opacity: 0.5;
+        right: 2.5%;
+    }
+    100% {
+        opacity: 1;
+        right: 5%;
+    }
+}

@@ -44,16 +44,41 @@ function playRound(human, computer) {
 function getDOMInteractions() {
 
     function renderScore()  {
-        let player_score = document.querySelector(".Player-Score");
-        let computer_score = document.querySelector(".Computer-Score"); 
+        let player_score = document.querySelector(".Player.Score");
+        let computer_score = document.querySelector(".Computer.Score"); 
 
         player_score.innerHTML = "";
         computer_score.innerHTML = "";
 
-        computer_score.innerHTML = `Computer.: ${parseInt(computerScore)}`;
-        player_score.innerHTML = `Player.: ${parseInt(humanScore)}`;
+        computer_score.innerHTML = `Computer Points.: ${parseInt(computerScore)}`;
+        player_score.innerHTML = `Player Points.: ${parseInt(humanScore)}`;
 
     }
+
+    function renderPlay(query, id) {
+
+        let images = document.querySelectorAll(query); 
+        let array = Array.from(images);
+        array.forEach((element) => {
+            element.className = makeitDisappear(element);
+            if (element.id == id) {
+                element.className = makeItAppear(element);
+            }
+        })
+
+    }
+
+    function makeitDisappear(element) {
+        new_class = element.className.replace("Active", "Inactive");
+        return new_class;
+    }
+
+    function makeItAppear(element) {
+        new_class = element.className.replace("Inactive", "Active");
+        return new_class;
+    }
+
+
 
     function displayMessage(class_name, message) {
         let display = document.querySelector(class_name)
@@ -66,12 +91,18 @@ function getDOMInteractions() {
     function finishGame() {
         let final_message = "Player won!"; 
         if (computerScore == 5)  {final_message = "Computer won!";} 
-        displayMessage(".Message", final_message);
+        alert(final_message)
     }
 
+    function buttonEnabler(flag, arr) {
+        arr.forEach((element) => {
+            element.disabled = flag
+        })
+    } 
 
     buttons_html = document.querySelectorAll(".Button");
     buttons = Array.from(buttons_html);
+    let loading = document.querySelector(".Loading");
     renderScore(); 
 
     buttons_html.forEach((btn) => {
@@ -79,20 +110,32 @@ function getDOMInteractions() {
         btn.addEventListener("click", (e) => {
 
             let player_choice = btn.id;
-            displayMessage(".Player", `Player.: ${player_choice}`);
-              
-            let computer_choice = getComputerChoice();
-            displayMessage(".Computer", `Computer.: ${computer_choice}`);
+            buttonEnabler(true, buttons_html);
 
+            let computer_choice = getComputerChoice();
+
+            playRound(player_choice, computer_choice);
+
+            renderPlay(".Play.Player", player_choice);
+
+
+            setTimeout(() => {loading.className = makeItAppear(loading)} , 1000);
+            setTimeout(() => {loading.className = makeitDisappear(loading)} , 3000);
+            setTimeout(() => { renderPlay(".Play.Computer", computer_choice)}, 3000);
+            setTimeout(() => {buttonEnabler(false, buttons_html)}, 3000)
+            setTimeout(() => { renderScore()}, 3000);
+           
+            if (computerScore == 5 || humanScore == 5) {
+               setTimeout(() => {buttonEnabler(false, buttons_html)}, 3000)
+               setTimeout(() => {finishGame()}, 3000); 
+            }
+
+            /*
             let message = playRound(player_choice, computer_choice);
             displayMessage(".Message", message); 
-
-            renderScore();
             
-            if (computerScore == 5 || humanScore == 5) {
-               buttons.map((b) => { b.disabled = true; })
-               finishGame(); 
-            }
+            
+               */
         })
 
 
