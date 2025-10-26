@@ -9,6 +9,19 @@
 </head>
 <body>
     <h2> Etch-A-Sketch </h2>
-    <div class = "Grid"></div>
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    <div class = "Grid">
+    </div>
+    <div class = "Panel">
+        <div class = "Picker Wrapper">
+            <button>Color</button>
+            <div class = "Color Picker">
+                <div class = "Color Square" style = "background-color: yellow;"></div>
+                <div class = "Color Square" style = "background-color: red;"></div>
+                <div class = "Color Square" style = "background-color: blue;"></div>
+            </div>
+        </div>
+        <div class = "Picked Color"></div>
+    </div>
 </body>
 </html>
