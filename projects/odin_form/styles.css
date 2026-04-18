@@ -6,6 +6,7 @@
 main {
     display: flex;
     width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 main,
@@ -14,18 +15,119 @@ main section {
 }
 
 main .Left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     width: 25vw;
-    background-color: antiquewhite;
+    background-image: url("folliage.avif");
+    color: white;
+}
+
+main .Left .Title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: black;
+    width: 100%;
+    opacity: 80%;
+    margin-top: 290px;
+    font-size: 30px;
+    font-family: "Rubik Storm", system-ui;
+}
+
+main .Left .Title img {
+    width: 80px;
 }
 
 main .Right {
     width: 75vw;
     display: grid;
-    grid-template-rows: 35% 30% 35%;
-    background-color: orange;
+    grid-template-rows: 35% 40% 25%;
+}
+
+main .Right div:nth-child(odd) {
+    background-color: rgb(239, 239, 239);
 }
 
 main .Right div {
     width: 100%;
-    border: 2px solid black;
+}
+
+main .Right div > *:nth-child(n){
+    margin-left: 50px;
+}
+
+main .Right div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+}
+
+
+main .Right div:nth-child(1) h3:nth-child(1) {
+    margin-top: 60px;
+    width: 90%;
+}
+
+main .Right div:nth-child(1) h3:nth-child(3) {
+    margin-top: 50px;
+}
+
+main .Right div:nth-child(2) form  {
+    display: grid;
+    margin-top: 15px;
+    grid-template-columns: 50% 50%;
+    height: 69%;
+    width: 60%;
+}
+
+main .Right div:nth-child(2) form nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+main .Right div:nth-child(2) form nav label {
+    font-weight: bolder;
+}
+
+main .Right div:nth-child(2) form nav input {
+    width: 300px;
+    height: 20px;
+    padding: 5px;
+}
+
+main .Right div:nth-child(2) h3 {
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+main .Right div:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+main .Right div:nth-child(3) > input {
+    margin-top: 20px;
+    width: 250px;
+    height: 45px;
+    background-color: rgb(92, 124, 101);
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px black;
+    font-weight: bolder;
+    outline: none;
+    border: none;
+}
+
+main .Right div:nth-child(3) a {
+    color: rgb(92, 124, 101);
+    font-weight: bolder;
 }
