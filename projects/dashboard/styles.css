@@ -6,12 +6,13 @@
 }
 
 .Main {
+    display: flex;
     width: 100vw;
     height: 100vh;
 }
 
 .Main .Left {
-    width: 18vw;
+    width: 20vw;
     height: 100vh;
     background-color: rgb(8, 156, 209);
 }
@@ -34,4 +35,49 @@
 
 .Main .Left section div i {
     font-size: 25px;
+}
+
+.Main .Right {
+    width: 82vw;
+    background-color: red;
+}
+
+.Main .Right section:nth-child(1) {
+    display: flex;
+    background-color: white;
+    height: 5vw;
+}
+
+.Main .Right section div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    gap: 5px;
+}
+
+.Main .Right section .Search {
+    width: 60vw;
+}
+
+.Main .Right section .Search input {
+    width: 85%;
+    height: 15px;
+    padding: 15px;
+    outline: none;
+    background-color: rgb(240, 240, 240);
+    border: none;
+    border-radius: 25px;
+}
+
+.Main .Right section .Icon {
+    width: 40vw;
+    gap: 30px;
+    font-size: 20px;
+}
+
+.Main .Right section .Icon .Image {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
 }
