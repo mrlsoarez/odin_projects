@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    --blueish: rgb(8, 156, 209);;
 }
 
 .Main {
@@ -14,7 +15,7 @@
 .Main .Left {
     width: 20vw;
     height: 100vh;
-    background-color: rgb(8, 156, 209);
+    background-color: var(--blueish)
 }
 
 .Main .Left section {
@@ -45,7 +46,13 @@
 .Main .Right section:nth-child(1) {
     display: flex;
     background-color: white;
-    height: 5vw;
+}
+
+.Main .Right section:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    height: 9vh;
 }
 
 .Main .Right section div {
@@ -80,4 +87,39 @@
     width: 60px;
     height: 60px;
     border-radius: 100px;
+}
+
+.Main .Right section:nth-child(2) .Introduct {
+    margin-left: 40px;
+    gap: 20px;
+}
+
+.Main .Right section:nth-child(2) .Introduct #img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 2px solid red;
+}
+
+.Main .Right section:nth-child(2) .Introduct div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.Main .Right section:nth-child(2) .Buttons {
+    display: flex;
+    gap: 50px;
+    margin-right: 140px;
+}
+
+.Main .Right section:nth-child(2) .Buttons button {
+    background-color: var(--blueish);
+    color: white;
+    padding: 8px;
+    width: 80px;
+    font-weight: bolder;
+    border: none;
+    border-radius: 50px;
 }
